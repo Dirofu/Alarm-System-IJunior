@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
+
 public class DoorAlarm : MonoBehaviour
 {
+    [SerializeField] private float _step;
+
     private Animator _animator;
     private AudioSource _audio;
 
@@ -17,11 +22,19 @@ public class DoorAlarm : MonoBehaviour
     {
         if (_animator.GetBool("isOpen") == true)
         {
-            _audio.volume += Time.deltaTime;
+<<<<<<< HEAD
+            _audio.volume += Mathf.MoveTowards(0f, 1f, _step);
         }
         else
         {
-            _audio.volume -= Time.deltaTime;
+            _audio.volume -= Mathf.MoveTowards(0f, 1f, _step);
+=======
+            _audio.volume += Mathf.MoveTowards(0f, 1f, 0.01f);
+        }
+        else
+        {
+            _audio.volume -= Mathf.MoveTowards(0f, 1f, 0.01f);
+>>>>>>> 54f1a75fb238f67f7c9752a9e3dfa7cbd137e3fa
         }
     }
 }
