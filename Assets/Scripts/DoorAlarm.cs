@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class DoorAlarm : MonoBehaviour
 {
-    [SerializeField] private float _step;
+    [SerializeField] private float _speed;
 
     private Animator _animator;
     private AudioSource _audio;
@@ -22,11 +22,11 @@ public class DoorAlarm : MonoBehaviour
     {
         if (_animator.GetBool("isOpen") == true)
         {
-            _audio.volume += Mathf.MoveTowards(0f, 1f, _step);
+            _audio.volume += Mathf.MoveTowards(0f, 1f, Time.deltaTime * _speed);
         }
         else
         {
-            _audio.volume -= Mathf.MoveTowards(0f, 1f, _step);
+            _audio.volume -= Mathf.MoveTowards(0f, 1f, Time.deltaTime * _speed);
         }
     }
 }
