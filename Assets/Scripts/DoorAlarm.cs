@@ -22,19 +22,11 @@ public class DoorAlarm : MonoBehaviour
     {
         if (_animator.GetBool("isOpen") == true)
         {
-<<<<<<< HEAD
             _audio.volume += Mathf.MoveTowards(0f, 1f, _step);
         }
         else
         {
             _audio.volume -= Mathf.MoveTowards(0f, 1f, _step);
-=======
-            _audio.volume += Mathf.MoveTowards(0f, 1f, 0.01f);
-        }
-        else
-        {
-            _audio.volume -= Mathf.MoveTowards(0f, 1f, 0.01f);
->>>>>>> 54f1a75fb238f67f7c9752a9e3dfa7cbd137e3fa
         }
     }
 }
